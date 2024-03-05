@@ -13,6 +13,7 @@ export default function ImageInputField({
 }: ImageInputFieldProps) {
   const hiddenFileInput = useRef<HTMLInputElement>(null);
 
+  // Mock function to handle file upload
   const handleFileUpload = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     hiddenFileInput.current!.click();
@@ -30,7 +31,6 @@ export default function ImageInputField({
         value={value}
         ref={hiddenFileInput}
         onChange={(event) => setValue({ image: event.target.value })}
-        style={{ display: "none" }}
       />
     </section>
   );

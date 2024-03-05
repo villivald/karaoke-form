@@ -13,7 +13,7 @@
     justify-self: start;
     padding-left: calc(var(--padding-base) * 4);
     padding-top: calc(var(--padding-base) * 4);
-    font-size: 1.5rem;
+    font-size: var(--font-size-xl);
   }
 }
 
@@ -68,4 +68,16 @@ fieldset > section > label[data-checked="true"]:focus-visible {
 
 form > button:focus-visible {
   outline-offset: 0.25rem;
+}
+
+@media (width <= 475px) {
+  .karaokeFormContainer > h1 {
+    justify-self: center;
+    font-size: var(--font-size-l);
+  }
+
+  form {
+    width: 22.5rem;
+    font-size: var(--font-size-s);
+  }
 }

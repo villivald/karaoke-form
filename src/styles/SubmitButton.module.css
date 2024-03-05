@@ -12,11 +12,13 @@ form > button {
   cursor: pointer;
 }
 
+/* Disabled state */
 form > button[disabled] {
   background-color: var(--color-gray);
   cursor: not-allowed;
 }
 
+/* Loading spinner element */
 .spinner {
   justify-self: center;
   width: 1.5rem;

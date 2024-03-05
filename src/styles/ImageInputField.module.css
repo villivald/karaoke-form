@@ -1,3 +1,4 @@
+/* Custom file input button */
 .imageInputField > button {
   cursor: pointer;
   background-color: var(--color-white);
@@ -6,6 +7,12 @@
   padding: calc(var(--padding-base) * 4);
 }
 
+/* Hide default file input field */
+.imageInputField > input {
+  display: none;
+}
+
+/* When image is selected */
 button[data-image="true"] {
   border-color: var(--color-brand-green);
 }
