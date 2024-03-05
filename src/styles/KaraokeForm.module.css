@@ -2,7 +2,7 @@
 .karaokeFormContainer {
   display: grid;
   place-items: center;
-  grid-template-rows: 1fr 95%;
+  grid-template-rows: 1fr 93%;
   height: 100dvh;
   max-width: 27.5rem;
   font-family: "IBM-Plex-Sans", sans-serif;
@@ -50,4 +50,22 @@ section > select {
 /* Checkbox - input field */
 section:last-of-type > input {
   width: 1.5rem;
+}
+
+/* Add outlines for keyboard users (accessibility) */
+input:first-of-type:focus-visible,
+select:focus-visible,
+button:focus-visible,
+fieldset > section > label:focus-visible {
+  outline: 0.25rem solid var(--color-brand-green);
+  border-color: transparent;
+}
+
+form > button:focus-visible,
+fieldset > section > label[data-checked="true"]:focus-visible {
+  outline-color: var(--color-black);
+}
+
+form > button:focus-visible {
+  outline-offset: 0.25rem;
 }

@@ -17,8 +17,19 @@ export default function MusicModeRadio({
       <section>
         {options.map((option, index) => {
           return (
-            <label key={index} data-checked={value === option}>
+            <label
+              key={index}
+              data-checked={value === option}
+              tabIndex={0}
+              onChange={() => setValue({ musicMode: option })}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  setValue({ musicMode: option });
+                }
+              }}
+            >
               <input
+                tabIndex={-1}
                 type="radio"
                 value={option}
                 checked={value === option}
