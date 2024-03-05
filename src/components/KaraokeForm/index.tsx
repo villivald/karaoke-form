@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 import SongSelect from "./SongSelect";
 import TextInputField from "./TextInputField";
@@ -31,21 +31,49 @@ export default function KaraokeForm() {
     userAgreement: false,
   };
 
+  const [loading, setLoading] = useState(false);
+
   // State handler for the form fields
   const [form, updateForm] = useReducer((prev: FormState, next: FormAction) => {
     return { ...prev, ...next };
   }, initialState);
 
   // Mock form submit handler
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    // Simulate loading state (5 seconds)
+    setLoading(true);
+
+    setTimeout(() => {
+      // Reset loading state
+      setLoading(false);
+
+      // Reset form state
+      updateForm({
+        name: "",
+        image: "",
+        song: "",
+        musicMode: "",
+        userAgreement: false,
+      });
+    }, 5000);
+
+    // Log form data to the console
     event.preventDefault();
     console.log(form);
   };
 
+  // Disable the submit button if any of the required fields are empty or the form is in loading state
+  const submitButtonDisabled =
+    loading ||
+    !form.name ||
+    !form.song ||
+    !form.musicMode ||
+    !form.userAgreement;
+
   return (
     <div className={styles.karaokeFormContainer}>
       <h1>Ilmoittautumislomake</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitForm}>
         <TextInputField value={form.name} setValue={updateForm} />
         <ImageInputField value={form.image} setValue={updateForm} />
         <SongSelect value={form.song} setValue={updateForm} />
@@ -54,7 +82,7 @@ export default function KaraokeForm() {
           value={form.userAgreement}
           setValue={updateForm}
         />
-        <SubmitButton disabled={!form.userAgreement} />
+        <SubmitButton disabled={submitButtonDisabled} loading={loading} />
       </form>
     </div>
   );

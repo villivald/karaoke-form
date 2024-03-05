@@ -1,9 +1,12 @@
-interface FormFieldProps {
+interface TextInputFieldProps {
   value: string;
   setValue: (value: { name: string }) => void;
 }
 
-export default function TextInputField({ value, setValue }: FormFieldProps) {
+export default function TextInputField({
+  value,
+  setValue,
+}: TextInputFieldProps) {
   return (
     <section>
       <label htmlFor="name-field">Nimi tai nimimerkki*</label>

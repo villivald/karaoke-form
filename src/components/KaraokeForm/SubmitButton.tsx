@@ -1,7 +1,14 @@
-export default function SubmitButton({ disabled }: { disabled: boolean }) {
+import styles from "../../styles/SubmitButton.module.css";
+
+interface SubmitButtonProps {
+  disabled: boolean;
+  loading: boolean;
+}
+
+export default function SubmitButton({ disabled, loading }: SubmitButtonProps) {
   return (
     <button type="submit" disabled={disabled}>
-      Submit
+      {loading ? <div className={styles.spinner}></div> : "Ilmoittaudu"}
     </button>
   );
 }

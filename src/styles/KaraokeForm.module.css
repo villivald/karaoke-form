@@ -1,5 +1,53 @@
+/* Main container */
 .karaokeFormContainer {
   display: grid;
   place-items: center;
+  grid-template-rows: 1fr 95%;
   height: 100dvh;
+  max-width: 27.5rem;
+  font-family: "IBM-Plex-Sans", sans-serif;
+  margin: auto;
+
+  /* Header */
+  h1 {
+    justify-self: start;
+    padding-left: calc(var(--padding-base) * 4);
+    padding-top: calc(var(--padding-base) * 4);
+    font-size: 1.5rem;
+  }
+}
+
+/* Form container */
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 1.5rem;
+  width: 100%;
+  padding: calc(var(--padding-base) * 4);
+}
+
+/* Single input section */
+section {
+  display: flex;
+  gap: 0.25rem;
+  font-weight: bold;
+}
+
+/* All input sections except the last one */
+section:not(:last-of-type) {
+  flex-direction: column;
+}
+
+/* Input and select elements */
+section > input,
+section > select {
+  border: 0.125rem solid var(--color-gray);
+  border-radius: var(--border-radius-base);
+  padding: calc(var(--padding-base) * 4);
+}
+
+/* Checkbox - input field */
+section:last-of-type > input {
+  width: 1.5rem;
 }

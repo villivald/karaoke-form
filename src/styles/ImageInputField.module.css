@@ -1,0 +1,11 @@
+.imageInputField > button {
+  cursor: pointer;
+  background-color: var(--color-white);
+  border: 0.125rem dashed var(--color-gray);
+  border-radius: var(--border-radius-base);
+  padding: calc(var(--padding-base) * 4);
+}
+
+button[data-image="true"] {
+  border-color: var(--color-brand-green);
+}

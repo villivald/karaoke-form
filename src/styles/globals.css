@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "IBM-Plex-Sans";
+  src: url("/fonts/IBMPlexSans-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Colors */
+  --color-brand-green: hsl(179, 56%, 33%);
+  --color-black: hsl(0deg 0% 0%);
+  --color-gray: hsl(0deg 0% 50%);
+  --color-white: hsl(0deg 0% 100%);
+
+  /* Padding */
+  --padding-base: 0.25rem;
+
+  /* Border */
+  --border-radius-base: 0.25rem;
+}
+
 *,
 *::before,
 *::after {
@@ -10,12 +31,10 @@
 
 body {
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 }
 
 input,
 button,
-textarea,
 select {
   font: inherit;
 }

@@ -1,9 +1,11 @@
-interface FormFieldProps {
+import songsData from "./songsData.json";
+
+interface SongSelectProps {
   value: string;
   setValue: (value: { song: string }) => void;
 }
 
-export default function SongSelect({ value, setValue }: FormFieldProps) {
+export default function SongSelect({ value, setValue }: SongSelectProps) {
   return (
     <section>
       <label htmlFor="song-field">Biisi*</label>
@@ -13,9 +15,14 @@ export default function SongSelect({ value, setValue }: FormFieldProps) {
         onChange={(event) => setValue({ song: event.target.value })}
         required
       >
-        <option value="song1">Song 1</option>
-        <option value="song2">Song 2</option>
-        <option value="song3">Song 3</option>
+        <option value="" disabled hidden>
+          Valitse alta
+        </option>
+        {songsData.map((song) => (
+          <option key={song.id} value={`${song.author} - ${song.title}`}>
+            {`${song.author} - ${song.title}`}
+          </option>
+        ))}
       </select>
     </section>
   );

@@ -1,6 +1,6 @@
 interface CheckboxProps {
   value: boolean;
-  setValue: (value: { userAgreement: string }) => void;
+  setValue: (value: { userAgreement: boolean }) => void;
 }
 
 export default function UserAgreementCheckbox({
@@ -13,7 +13,7 @@ export default function UserAgreementCheckbox({
         type="checkbox"
         id="user-agreement-field"
         checked={value}
-        onChange={(event) => setValue({ userAgreement: event.target.value })}
+        onChange={(event) => setValue({ userAgreement: event.target.checked })}
       />
       <label htmlFor="user-agreement-field">
         Sallin tietojeni tallennuksen karaokejärjestelmään
